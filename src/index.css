@@ -1,0 +1,183 @@
+/** @format */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Poppins";
+  src:
+    url("./fonts/poppins-semibold-webfont.woff2") format("woff2"),
+    url("./fonts/poppins-semibold-webfont.woff") format("woff");
+}
+@font-face {
+  font-family: "PoppinsB";
+  src:
+    url("./fonts/IRANSansWeb_Bold.woff2") format("woff2"),
+    url("./fonts/IRANSansWeb_Bold.woff") format("woff");
+}
+@font-face {
+  font-family: "iranB";
+  src:
+    url("./fonts/IRANSansWeb_Bold.woff2") format("woff2"),
+    url("./fonts/IRANSansWeb_Bold.woff") format("woff");
+}
+@font-face {
+  font-family: "iranM";
+  src:
+    url("./fonts/IRANSansWeb_Medium.woff2") format("woff2"),
+    url("./fonts/IRANSansWeb_Medium.woff") format("woff");
+}
+
+html {
+  font-size: 62.5%;
+  background-color: #0c0c0c;
+  scroll-behavior: smooth;
+}
+
+.dark {
+  background-color: #0c0c0c;
+}
+
+.light {
+  background-color: #efefe9;
+}
+
+body {
+  color: #ffffff;
+  overflow-x: hidden;
+  font-family: "iranM", sans-serif;
+  font-size: 1.6rem;
+  width: 100%;
+  max-width: 144rem;
+  margin: 0 auto;
+}
+
+@layer components {
+  .bgGlasses {
+    background: rgba(254, 185, 1, 0.19);
+    border-radius: 4rem;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(9.6px);
+    -webkit-backdrop-filter: blur(9.6px);
+    border: 1px solid rgba(254, 187, 1, 0.504);
+  }
+
+  .bgGlassesLight {
+    /* From https://css.glass */
+    background: rgba(102, 102, 102, 0.22);
+    border-radius: 50px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(7.9px);
+    -webkit-backdrop-filter: blur(7.9px);
+    border: 1px solid rgba(102, 102, 102, 0.3);
+  }
+
+  .bgText {
+    background: rgba(124, 122, 122, 0.37);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(7.6px);
+    -webkit-backdrop-filter: blur(7.6px);
+    border: 1px solid rgba(124, 122, 122, 0.32);
+  }
+
+  .bgBtn {
+    /* From https://css.glass */
+    background: rgba(254, 185, 1, 0.99);
+    border-radius: 50px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(0.8px);
+    -webkit-backdrop-filter: blur(0.8px);
+    border: 1px solid rgba(35, 26, 2, 0.316);
+  }
+
+  .bgBtnLight {
+    background: rgba(51, 28, 236, 0.14);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(14.1px);
+    -webkit-backdrop-filter: blur(14.1px);
+    border: 1px solid rgba(51, 28, 236, 0.3);
+  }
+
+  .bgBtnHover {
+    background: rgba(232, 190, 0, 0.34);
+    border-radius: 50px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(14.1px);
+    -webkit-backdrop-filter: blur(14.1px);
+    border: 1px solid rgba(26, 24, 1, 0.202);
+  }
+
+  .filterYellow {
+    filter: brightness(0) saturate(100%) invert(86%) sepia(44%) saturate(551%)
+      hue-rotate(359deg) brightness(101%) contrast(80%);
+  }
+
+  .filterBlack {
+    filter: brightness(0) saturate(100%) invert(0%);
+  }
+
+  .bgBadge {
+    background: rgba(255, 255, 255, 0.38);
+    border-radius: 50px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(15.4px);
+    -webkit-backdrop-filter: blur(15.4px);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+  }
+
+  .navBgDark {
+    background: rgba(255, 252, 252, 0.25);
+    /* box-shadow: 0 1px 20px 0 rgba(26, 34, 192, 0.325); */
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+  }
+  .navBgLight {
+    background: rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 32px 0 rgba(3, 4, 14, 0.37);
+    backdrop-filter: blur(10.5px);
+    -webkit-backdrop-filter: blur(10.5px);
+    border-radius: 10px;
+  }
+
+  .strokeText {
+    -webkit-text-stroke: 2px black;
+    opacity: 0.1;
+  }
+  .dark .strokeText {
+    -webkit-text-stroke: 2px #feb901;
+    opacity: 0.1;
+  }
+
+  .bgCard {
+    background: rgba(32, 34, 2, 0.82);
+    border-radius: 60px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(9.6px);
+    -webkit-backdrop-filter: blur(9.6px);
+    border: 1px solid rgba(87, 92, 1, 0.3);
+  }
+
+  .bgCardDark {
+    background: rgba(87, 92, 1, 0.22);
+    border-radius: 60px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(9.6px);
+    -webkit-backdrop-filter: blur(9.6px);
+    border: 1px solid rgba(87, 92, 1, 0.3);
+  }
+
+  .textGradient {
+    background: linear-gradient(
+      to bottom,
+      rgb(232, 181, 14),
+      rgba(255, 255, 255, 0)
+    );
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+}
