@@ -58,8 +58,8 @@ const AboutMe = () => {
           </div>
           {/* badge */}
           <div className="relative overflow-hidden">
-            <motion.div
-              style={{ x: scrollXBadge }}
+            <div
+              // style={{ x: scrollXBadge }}
               className="flex items-center gap-9 overflow-x-auto"
             >
               {/* //!Badge-2 */}
@@ -140,13 +140,13 @@ const AboutMe = () => {
                   Traveling
                 </span>
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
         {/*//! 2 */}
         <div className="relative flex items-center overflow-hidden">
-          <motion.div
-            style={{ x: scrollXCard }}
+          <div
+            // style={{ x: scrollXCard }}
             className="flex items-center justify-between gap-3 font-iranB text-6xl text-white max-md:text-4xl"
           >
             {/*  */}
@@ -194,7 +194,7 @@ const AboutMe = () => {
                 That Inspire
               </p>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
       {/* //!section-2 */}
