@@ -42,12 +42,12 @@ const ProjectsSection = () => {
         id="projects"
       >
         <div className="relative flex justify-center py-24 font-poppinsB max-2xl:py-14 max-lg:py-16 max-md:py-12 max-sm:py-12 max-[400px]:py-8">
-          <motion.p
-            style={{ scale: scaleText }}
+          <p
+            // style={{ scale: scaleText }}
             className="strokeText absolute top-[85%] text-[13rem] text-transparent dark:stroke-mainYellow max-md:top-[92%] max-md:text-[9rem] max-sm:top-[95%] max-sm:text-[7rem]"
           >
             Projects
-          </motion.p>
+          </p>
           <h2 className="absolute top-full text-[11rem] text-neutral-900 dark:text-mainYellow max-md:text-[8rem] max-sm:text-[6rem]">
             Projects
           </h2>
@@ -153,6 +153,10 @@ const ProjectsSection = () => {
                 </h3>
                 <p className="text-center text-2xl text-gray-400" dir="rtl">
                   Music App
+                  <span className="pb-12 text-xl text-red-500">
+                    {" "}
+                    (Turn on VPN)
+                  </span>
                 </p>
               </div>
               {/* //!badges */}
@@ -200,9 +204,6 @@ const ProjectsSection = () => {
                 مشاهده دمو
                 <img src={eyeIcon} className="w-10" alt="eye-icon" />
               </a>
-              <span className="pb-12 text-red-500">
-                حتماً با فیلتر شکن مشاهده شود
-              </span>
             </div>
           </motion.div>
           {/*//! پروژه 3 */}
