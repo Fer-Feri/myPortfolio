@@ -1,5 +1,11 @@
 import { Canvas, useFrame } from "@react-three/fiber";
-import { useRef, useLayoutEffect, useState, useMemo } from "react";
+import React, {
+  useRef,
+  useLayoutEffect,
+  useState,
+  useMemo,
+  Suspense,
+} from "react";
 import { useGLTF, Stage } from "@react-three/drei";
 import { motion, useScroll } from "framer-motion";
 
@@ -28,44 +34,38 @@ const SpinningSphere = ({ size }) => {
 };
 
 //------------------
-const StaticModel = ({
-  position,
-  size,
-  modelPath,
-  rotationSpeed,
-  color,
-  onClick,
-  scale,
-}) => {
-  const meshRef2 = useRef();
-  const { scene } = useGLTF(modelPath);
+const StaticModel = React.memo(
+  ({ position, size, modelPath, rotationSpeed, color, onClick, scale }) => {
+    const meshRef2 = useRef();
+    const { scene } = useGLTF(modelPath);
 
-  useLayoutEffect(() => {
-    if (scene) {
-      scene.traverse((child) => {
-        if (child.isMesh) {
-          child.material.color.set(color); // تغییر رنگ مدل
-        }
-      });
-    }
-  }, [scene, color]);
+    useLayoutEffect(() => {
+      if (scene) {
+        scene.traverse((child) => {
+          if (child.isMesh) {
+            child.material.color.set(color); // تغییر رنگ مدل
+          }
+        });
+      }
+    }, [scene, color]);
 
-  useFrame((_, delta) => {
-    if (meshRef2.current) {
-      meshRef2.current.rotation.y += delta * rotationSpeed;
-    }
-  });
+    useFrame((_, delta) => {
+      if (meshRef2.current) {
+        meshRef2.current.rotation.y += delta * rotationSpeed;
+      }
+    });
 
-  return (
-    <primitive
-      ref={meshRef2}
-      object={scene}
-      position={position}
-      scale={scale}
-      onClick={onClick}
-    />
-  );
-};
+    return (
+      <primitive
+        ref={meshRef2}
+        object={scene}
+        position={position}
+        scale={scale}
+        onClick={onClick}
+      />
+    );
+  },
+);
 
 //------------------
 const ContactMe = () => {
@@ -81,14 +81,17 @@ const ContactMe = () => {
     () => [gitIcon3D, instaIcon3D, inIcon3D, teleIcon3D],
     [],
   );
-  const rotationSpeeds = [0.5, 0.7, 0.9, 0.6];
-  const colors = [null, "#C13584", null, null];
-  const links = [
-    "https://github.com/Fer-Feri",
-    "https://www.instagram.com/far._.shad_/",
-    "https://www.linkedin.com/in/farshad-bahari-7809b5327",
-    "https://t.me/Witcher33",
-  ];
+  const rotationSpeeds = useMemo(() => [0.5, 0.7, 0.9, 0.6], []);
+  const colors = useMemo(() => [null, "#C13584", null, null], []);
+  const links = useMemo(
+    () => [
+      "https://github.com/Fer-Feri",
+      "https://www.instagram.com/far._.shad_/",
+      "https://www.linkedin.com/in/farshad-bahari-7809b5327",
+      "https://t.me/Witcher33",
+    ],
+    [],
+  );
 
   useLayoutEffect(() => {
     const handleResize = () => {
@@ -133,26 +136,28 @@ const ContactMe = () => {
         </div>
       </div>
 
-      <Canvas shadows>
-        <Stage>
-          <SpinningSphere size={size} />
-          {positions.map((pos, index) => (
-            <StaticModel
-              key={index}
-              position={pos}
-              size={size}
-              modelPath={models[index]}
-              rotationSpeed={rotationSpeeds[index]}
-              color={colors[index]}
-              scale={
-                index === 0
-                  ? [size / 2, size / 2, size / 2]
-                  : [size / 3, size / 3, size / 3]
-              }
-              onClick={() => window.open(links[index], "_blank")}
-            />
-          ))}
-        </Stage>
+      <Canvas shadows={false}>
+        <Suspense fallback={null}>
+          <Stage>
+            <SpinningSphere size={size} />
+            {positions.map((pos, index) => (
+              <StaticModel
+                key={index}
+                position={pos}
+                size={size}
+                modelPath={models[index]}
+                rotationSpeed={rotationSpeeds[index]}
+                color={colors[index]}
+                scale={
+                  index === 0
+                    ? [size / 2, size / 2, size / 2]
+                    : [size / 3, size / 3, size / 3]
+                }
+                onClick={() => window.open(links[index], "_blank")}
+              />
+            ))}
+          </Stage>
+        </Suspense>
       </Canvas>
     </div>
   );
