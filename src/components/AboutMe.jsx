@@ -35,7 +35,7 @@ const AboutMe = () => {
 
       {/* //?content */}
       {/* //!section-1 */}
-      <div className="flex flex-col justify-between gap-20 overflow-x-hidden px-4">
+      <div className="flex flex-wrap justify-between gap-20 overflow-x-hidden px-4">
         {/* //!1 */}
         <div className="flex grow flex-col flex-wrap gap-20 max-md:gap-9">
           {/* love */}
@@ -57,69 +57,66 @@ const AboutMe = () => {
             </div>
           </div>
           {/* badge */}
-          <div className="relative overflow-hidden">
-            <motion.div
-              style={{ x: scrollXBadge }}
-              className="flex items-center gap-9 overflow-x-auto"
-            >
+          <div className="">
+            <div className="flex flex-wrap items-center gap-9">
               {/* //!Badge-2 */}
-              <div className="bg-natural-900 flex w-fit items-center justify-center gap-6 rounded-full bg-neutral-700 px-12 py-4 text-white dark:bg-white dark:text-neutral-900">
+              <div className="bg-natural-900 flex w-fit items-center justify-center gap-4 rounded-full bg-neutral-700 px-6 py-4 text-white dark:bg-white dark:text-neutral-900">
                 <img
                   src={foodImg}
                   className="w-[35px] !cursor-default max-[640px]:w-[27px]"
                   alt="tailwind-Logo"
                 />
                 <span className="whitespace-nowrap font-poppinsB text-4xl tracking-wide max-lg:text-3xl max-[800px]:text-3xl">
-                  Eating Food
+                  Food
                 </span>
               </div>
               {/* //!Badge-1 */}
-              <div className="bg-natural-900 flex w-fit items-center justify-center gap-6 rounded-full bg-neutral-700 px-12 py-4 text-white dark:bg-white dark:text-neutral-900">
+              <div className="bg-natural-900 flex w-fit items-center justify-center gap-4 rounded-full bg-neutral-700 px-6 py-4 text-white dark:bg-white dark:text-neutral-900">
                 <img
                   src={animeImg}
                   className="w-[35px] !cursor-default max-[640px]:w-[27px]"
                   alt="tailwind-Logo"
                 />
                 <span className="whitespace-nowrap font-poppinsB text-4xl tracking-wide max-lg:text-3xl max-[800px]:text-3xl">
-                  Watch Anime
+                  Anime
                 </span>
               </div>
 
               {/* //!Badge-3 */}
-              <div className="bg-natural-900 flex w-fit items-center justify-center gap-6 rounded-full bg-neutral-700 px-12 py-4 text-white dark:bg-white dark:text-neutral-900">
+              <div className="bg-natural-900 flex w-fit items-center justify-center gap-4 rounded-full bg-neutral-700 px-6 py-4 text-white dark:bg-white dark:text-neutral-900">
                 <img
                   src={footballImg}
                   className="w-[35px] !cursor-default max-[640px]:w-[27px]"
                   alt="tailwind-Logo"
                 />
                 <span className="whitespace-nowrap font-poppinsB text-4xl tracking-wide max-lg:text-3xl max-[800px]:text-3xl">
-                  Playing Football
+                  Football
                 </span>
               </div>
               {/* //!Badge-4 */}
-              <div className="bg-natural-900 flex w-fit items-center justify-center gap-6 rounded-full bg-neutral-700 px-12 py-4 text-white dark:bg-white dark:text-neutral-900">
+              <div className="bg-natural-900 flex w-fit items-center justify-center gap-4 rounded-full bg-neutral-700 px-6 py-4 text-white dark:bg-white dark:text-neutral-900">
                 <img
                   src={musicImg}
                   className="w-[35px] !cursor-default max-[640px]:w-[27px]"
                   alt="tailwind-Logo"
                 />
                 <span className="whitespace-nowrap font-poppinsB text-4xl tracking-wide max-lg:text-3xl max-[800px]:text-3xl">
-                  Instrumental
+                  Music
                 </span>
               </div>
               {/* //!Badge-5 */}
-              <div className="bg-natural-900 flex w-fit items-center justify-center gap-6 rounded-full bg-neutral-700 px-12 py-4 text-white dark:bg-white dark:text-neutral-900">
+              <div className="bg-natural-900 flex w-fit items-center justify-center gap-4 rounded-full bg-neutral-700 px-6 py-4 text-white dark:bg-white dark:text-neutral-900">
                 <img
                   src={gameImg}
                   className="w-[35px] !cursor-default max-[640px]:w-[27px]"
                   alt="tailwind-Logo"
                 />
                 <span className="whitespace-nowrap font-poppinsB text-4xl tracking-wide max-lg:text-3xl max-[800px]:text-3xl">
-                  Playing Game
+                  Game
                 </span>
               </div>
               {/* //!Badge-6 */}
-              <div className="bg-natural-900 flex w-fit items-center justify-center gap-6 rounded-full bg-neutral-700 px-12 py-4 text-white dark:bg-white dark:text-neutral-900">
+              <div className="bg-natural-900 flex w-fit items-center justify-center gap-4 rounded-full bg-neutral-700 px-6 py-4 text-white dark:bg-white dark:text-neutral-900">
                 <img
                   src={codeImg}
                   className="w-[35px] !cursor-default max-[640px]:w-[27px]"
@@ -130,7 +127,7 @@ const AboutMe = () => {
                 </span>
               </div>
               {/* //!Badge-7 */}
-              <div className="bg-natural-900 flex w-fit items-center justify-center gap-6 rounded-full bg-neutral-700 px-12 py-4 text-white dark:bg-white dark:text-neutral-900">
+              <div className="bg-natural-900 flex w-fit items-center justify-center gap-4 rounded-full bg-neutral-700 px-6 py-4 text-white dark:bg-white dark:text-neutral-900">
                 <img
                   src={travelingImg}
                   className="w-[35px] !cursor-default max-[640px]:w-[27px]"
@@ -140,17 +137,14 @@ const AboutMe = () => {
                   Traveling
                 </span>
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
         {/*//! 2 */}
-        <div className="relative flex items-center overflow-hidden">
-          <motion.div
-            style={{ x: scrollXCard }}
-            className="flex items-center justify-between gap-3 font-iranB text-6xl text-white max-md:text-4xl"
-          >
+        <div className="flex w-[45%] grow items-center">
+          <div className="flex flex-wrap items-center justify-between gap-3 font-iranB text-6xl text-white max-md:text-4xl">
             {/*  */}
-            <div className="bgCard flex grow flex-col items-center justify-center gap-6 px-32 py-12 max-lg:px-16 max-lg:py-8 max-sm:px-12 max-sm:py-6">
+            <div className="bgCard flex grow flex-col items-center justify-center gap-6 px-32 py-12 max-lg:px-16 max-lg:py-8 max-sm:px-9 max-sm:py-6">
               <p className="textGradient whitespace-nowrap text-6xl max-lg:text-4xl max-sm:text-3xl">
                 Passionate
               </p>
@@ -159,7 +153,7 @@ const AboutMe = () => {
               </p>
             </div>
             {/*  */}
-            <div className="bgCard dark:bgCardDark flex grow flex-col items-center justify-center gap-6 px-32 py-12 max-lg:px-16 max-lg:py-8 max-sm:px-12 max-sm:py-6">
+            <div className="bgCard dark:bgCardDark flex grow flex-col items-center justify-center gap-6 px-32 py-12 max-lg:px-16 max-lg:py-8 max-sm:px-9 max-sm:py-6">
               <p className="textGradient whitespace-nowrap text-6xl max-lg:text-4xl max-sm:text-3xl">
                 Creating Modern &
               </p>
@@ -168,7 +162,7 @@ const AboutMe = () => {
               </p>
             </div>
             {/*  */}
-            <div className="bgCard flex grow flex-col items-center justify-center gap-6 px-32 py-12 max-lg:px-16 max-lg:py-8 max-sm:px-12 max-sm:py-6">
+            <div className="bgCard flex grow flex-col items-center justify-center gap-6 px-32 py-12 max-lg:px-16 max-lg:py-8 max-sm:px-9 max-sm:py-6">
               <p className="textGradient whitespace-nowrap text-6xl max-lg:text-4xl max-sm:text-3xl">
                 Turning Ideas
               </p>
@@ -176,25 +170,7 @@ const AboutMe = () => {
                 into Digital Reality
               </p>
             </div>
-            {/*  */}
-            <div className="bgCard flex grow flex-col items-center justify-center gap-6 px-32 py-12 max-lg:px-16 max-lg:py-8 max-sm:px-12 max-sm:py-6">
-              <p className="textGradient whitespace-nowrap text-6xl max-lg:text-4xl max-sm:text-3xl">
-                Simplifying
-              </p>
-              <p className="whitespace-nowrap text-5xl max-lg:text-3xl max-sm:text-2xl">
-                Complex Designs
-              </p>
-            </div>
-            {/*  */}
-            <div className="bgCard flex grow flex-col items-center justify-center gap-6 px-32 py-12 max-lg:px-16 max-lg:py-8 max-sm:px-12 max-sm:py-6">
-              <p className="textGradient whitespace-nowrap text-6xl max-lg:text-4xl max-sm:text-3xl">
-                Building Websites
-              </p>
-              <p className="whitespace-nowrap text-5xl max-lg:text-3xl max-sm:text-2xl">
-                That Inspire
-              </p>
-            </div>
-          </motion.div>
+          </div>
         </div>
       </div>
       {/* //!section-2 */}
