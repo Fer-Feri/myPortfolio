@@ -53,7 +53,7 @@ const App = () => {
         <Projects />
 
         {/* بخش پنجم */}
-        {/* <Contact /> */}
+        <Contact />
 
         {/* <motion.div
           style={{ width: widthPart1 }}
