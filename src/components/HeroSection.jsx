@@ -90,7 +90,13 @@ const HeroSection = () => {
 
         {/* //?button */}
         <div className="relative z-10 mt-24 flex items-center justify-center gap-6 text-4xl max-sm:text-3xl max-[390px]:text-2xl">
-          <button className="bgBtnHover dark:bgGlasses group flex items-center gap-5 rounded-full px-12 py-6 text-neutral-900 transition-all hover:bg-neutral-900 hover:text-mainYellow dark:text-mainYellow dark:hover:bg-mainYellow dark:hover:text-neutral-900 max-sm:px-9 max-sm:py-5">
+          <a
+            href="/myPortfolio/resume.pdf" // Ensure this path is correct
+            download="resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bgBtnHover dark:bgGlasses group flex items-center gap-5 rounded-full px-12 py-6 text-neutral-900 transition-all hover:bg-neutral-900 hover:text-mainYellow dark:text-mainYellow dark:hover:bg-mainYellow dark:hover:text-neutral-900 max-sm:px-9 max-sm:py-5"
+          >
             <motion.img
               initial={{ y: 0 }}
               animate={{
@@ -102,11 +108,12 @@ const HeroSection = () => {
                   ease: "easeInOut",
                 },
               }}
-              className="filterBlack dark:filterYellow group-hover:filterYellow group-hover:dark::filterBlack w-11 transition-all max-md:w-9 max-[490px]:w-8"
+              className="filterBlack dark:filterYellow group-hover:filterYellow group-hover:dark:filterBlack w-11 transition-all max-md:w-9 max-[490px]:w-8"
               src={download}
+              alt="Download Icon"
             />
             دانلود رزومه
-          </button>
+          </a>
           <button
             className="bgBtn hover:bgBtnHover dark:hover:bgGlasses rounded-full px-12 py-6 text-neutral-900 transition-all hover:text-mainYellow dark:hover:text-mainYellow max-sm:px-9 max-sm:py-5"
             onClick={() => {
