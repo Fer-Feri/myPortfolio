@@ -21,12 +21,12 @@ const AboutMe = () => {
       {/* //?title */}
       <div className="mb-[26rem] max-2xl:mb-[22rem] max-xl:mb-[17rem] max-lg:mb-[20rem] max-md:mb-[16rem] max-sm:mb-[15rem] max-[400px]:mb-[12rem]">
         <div className="relative flex justify-center py-24 font-poppinsB max-2xl:py-14 max-lg:py-16 max-md:py-12 max-sm:py-12 max-[400px]:py-8">
-          <p
-            // style={{ scale: scaleText }}
+          <motion.p
+            style={{ scale: scaleText }}
             className="strokeText absolute top-[85%] text-[13rem] text-transparent dark:stroke-mainYellow max-md:top-[92%] max-md:text-[9rem] max-sm:top-[95%] max-sm:text-[7rem]"
           >
             About Me
-          </p>
+          </motion.p>
           <h2 className="absolute top-full text-[11rem] text-neutral-900 dark:text-mainYellow max-md:text-[8rem] max-sm:text-[6rem]">
             About Me
           </h2>
@@ -58,8 +58,8 @@ const AboutMe = () => {
           </div>
           {/* badge */}
           <div className="relative overflow-hidden">
-            <div
-              // style={{ x: scrollXBadge }}
+            <motion.div
+              style={{ x: scrollXBadge }}
               className="flex items-center gap-9 overflow-x-auto"
             >
               {/* //!Badge-2 */}
@@ -140,13 +140,13 @@ const AboutMe = () => {
                   Traveling
                 </span>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
         {/*//! 2 */}
         <div className="relative flex items-center overflow-hidden">
-          <div
-            // style={{ x: scrollXCard }}
+          <motion.div
+            style={{ x: scrollXCard }}
             className="flex items-center justify-between gap-3 font-iranB text-6xl text-white max-md:text-4xl"
           >
             {/*  */}
@@ -194,7 +194,7 @@ const AboutMe = () => {
                 That Inspire
               </p>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
       {/* //!section-2 */}

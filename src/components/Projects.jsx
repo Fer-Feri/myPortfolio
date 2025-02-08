@@ -42,12 +42,12 @@ const ProjectsSection = () => {
         id="projects"
       >
         <div className="relative flex justify-center py-24 font-poppinsB max-2xl:py-14 max-lg:py-16 max-md:py-12 max-sm:py-12 max-[400px]:py-8">
-          <p
-            // style={{ scale: scaleText }}
+          <motion.p
+            style={{ scale: scaleText }}
             className="strokeText absolute top-[85%] text-[13rem] text-transparent dark:stroke-mainYellow max-md:top-[92%] max-md:text-[9rem] max-sm:top-[95%] max-sm:text-[7rem]"
           >
             Projects
-          </p>
+          </motion.p>
           <h2 className="absolute top-full text-[11rem] text-neutral-900 dark:text-mainYellow max-md:text-[8rem] max-sm:text-[6rem]">
             Projects
           </h2>
