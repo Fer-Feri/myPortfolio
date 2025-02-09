@@ -29,18 +29,7 @@ const textVariants = {
     },
   },
 };
-// ------------------------------
-const btnVariants = {
-  hidden: { opacity: 0, scale: 0 },
-  visible: {
-    opacity: 1,
-    scale: 1.05,
-    transition: {
-      duration: 0.5,
-      ease: "easeInOut",
-    },
-  },
-};
+
 // ------------------------------
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -57,7 +46,7 @@ const itemVariants = {
 // ------------------------------
 const HeroSection = () => {
   return (
-    <div className="relative h-auto w-full pt-14 max-2xl:px-3 max-md:px-6">
+    <div className="relative h-auto w-full overflow-x-hidden pt-14 max-2xl:px-3 max-md:px-6">
       <div className="relative w-full">
         {/*//? BG VECTOR */}
         <img
@@ -132,12 +121,7 @@ const HeroSection = () => {
         </div>
 
         {/* //?button */}
-        <motion.div
-          variants={btnVariants}
-          initial="hidden"
-          whileInView="visible"
-          className="relative z-10 mt-24 flex items-center justify-center gap-6 text-4xl max-sm:text-3xl max-[390px]:text-2xl"
-        >
+        <div className="relative z-10 mt-24 flex items-center justify-center gap-6 text-4xl max-sm:text-3xl max-[390px]:text-2xl">
           <a
             href="/myPortfolio/resume.pdf"
             download="resume.pdf"
@@ -171,7 +155,7 @@ const HeroSection = () => {
           >
             شروع همکاری
           </button>
-        </motion.div>
+        </div>
 
         {/*//? person img - badge */}
         <div className="mt-32 flex items-end justify-center max-sm:mt-16">
