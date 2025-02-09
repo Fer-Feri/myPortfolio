@@ -11,6 +11,19 @@ import { motion } from "framer-motion";
 import { useContext, useState } from "react";
 import { ThemeContext } from "../ThemeContext";
 
+const navVariants = {
+  hidden: { opacity: 0, x: 100 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.5,
+      ease: "easeInOut",
+    },
+  },
+};
+
+// --------------------
 const menu = [
   { name: "About Me", id: "about-me" },
   { name: "Skills", id: "skills" },
@@ -18,12 +31,18 @@ const menu = [
   { name: "Contact", id: "contact" },
 ];
 
+// --------------------
 const NavMenu = () => {
   const { isDarkMode, toggleTheme } = useContext(ThemeContext); // Correct destructuring
   const [isOpenMenu, setIsOpenMenu] = useState(false);
   return (
     <>
-      <nav className="navBgLight dark:navBgDark relative z-50 flex w-full justify-between rounded-full p-4">
+      <motion.nav
+        variants={navVariants}
+        initial="hidden"
+        whileInView="visible"
+        className="navBgLight dark:navBgDark relative z-50 flex w-full justify-between rounded-full p-4"
+      >
         {/* //?section-1 */}
         {/* logo */}
         <div className="flex items-center gap-3">
@@ -137,7 +156,7 @@ const NavMenu = () => {
             </motion.div>
           </div>
         </div>
-      </nav>
+      </motion.nav>
     </>
   );
 };

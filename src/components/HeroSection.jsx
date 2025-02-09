@@ -17,6 +17,44 @@ import framerIcon from "../assets/icons/framer.svg";
 
 import { motion } from "framer-motion";
 
+// ------------------------------
+const textVariants = {
+  hidden: { opacity: 0, x: -100 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.5,
+      ease: "easeInOut",
+    },
+  },
+};
+// ------------------------------
+const btnVariants = {
+  hidden: { opacity: 0, scale: 0 },
+  visible: {
+    opacity: 1,
+    scale: 1.05,
+    transition: {
+      duration: 0.5,
+      ease: "easeInOut",
+    },
+  },
+};
+// ------------------------------
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { staggerChildren: 0.5 } },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { duration: 0.5, ease: "easeInOut" },
+  },
+};
+// ------------------------------
 const HeroSection = () => {
   return (
     <div className="relative h-auto w-full pt-14 max-2xl:px-3 max-md:px-6">
@@ -31,7 +69,12 @@ const HeroSection = () => {
         <NavMenu />
 
         {/*//? title hero section */}
-        <div className="relative z-10 mt-36 flex w-full justify-center max-md:mt-24">
+        <motion.div
+          variants={textVariants}
+          initial="hidden"
+          whileInView="visible"
+          className="relative z-10 mt-36 flex w-full justify-center max-md:mt-24"
+        >
           <div className="bgGlassesLight dark:bgGlasses flex w-fit items-center justify-center gap-8 px-10 py-6 max-sm:gap-4 max-sm:px-6">
             <motion.img
               initial={{ rotate: "0deg" }}
@@ -56,7 +99,7 @@ const HeroSection = () => {
               هستم
             </p>
           </div>
-        </div>
+        </motion.div>
 
         {/*//? text hero section */}
         <div className="relative z-20 mt-16 text-center">
@@ -89,9 +132,14 @@ const HeroSection = () => {
         </div>
 
         {/* //?button */}
-        <div className="relative z-10 mt-24 flex items-center justify-center gap-6 text-4xl max-sm:text-3xl max-[390px]:text-2xl">
+        <motion.div
+          variants={btnVariants}
+          initial="hidden"
+          whileInView="visible"
+          className="relative z-10 mt-24 flex items-center justify-center gap-6 text-4xl max-sm:text-3xl max-[390px]:text-2xl"
+        >
           <a
-            href="/myPortfolio/resume.pdf" // Ensure this path is correct
+            href="/myPortfolio/resume.pdf"
             download="resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
@@ -123,14 +171,22 @@ const HeroSection = () => {
           >
             شروع همکاری
           </button>
-        </div>
+        </motion.div>
 
         {/*//? person img - badge */}
         <div className="mt-32 flex items-end justify-center max-sm:mt-16">
-          <div className="relative w-[500px] max-[800px]:w-[400px] max-[620px]:w-[300px] max-[470px]:w-[270px] max-[420px]:w-[240px] max-[370px]:w-[225px]">
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            className="relative w-[500px] max-[800px]:w-[400px] max-[620px]:w-[300px] max-[470px]:w-[270px] max-[420px]:w-[240px] max-[370px]:w-[225px]"
+          >
             <img className="rounded-full" src={person} alt="Farshad" />
             {/* //!Badge-1 */}
-            <div className="bgGlassesLight dark:bgBadge absolute -right-[33%] top-0 flex w-fit items-center gap-6 rounded-full px-9 py-4 text-neutral-900 max-lg:-right-[15%] max-[800px]:-right-[18%] max-[800px]:top-[5%] max-[800px]:gap-3 max-[800px]:px-5 max-[800px]:py-4">
+            <motion.div
+              variants={itemVariants}
+              className="bgGlassesLight dark:bgBadge absolute -right-[33%] top-0 flex w-fit items-center gap-6 rounded-full px-9 py-4 text-neutral-900 max-lg:-right-[15%] max-[800px]:-right-[18%] max-[800px]:top-[5%] max-[800px]:gap-3 max-[800px]:px-5 max-[800px]:py-4"
+            >
               <img
                 src={tailwindIcon}
                 className="w-[35px] !cursor-default max-[640px]:w-[27px]"
@@ -139,9 +195,12 @@ const HeroSection = () => {
               <span className="font-poppins text-4xl tracking-wide max-lg:text-3xl max-[800px]:text-2xl max-[640px]:text-xl">
                 Tailwind
               </span>
-            </div>
+            </motion.div>
             {/* //!Badge-2 */}
-            <div className="bgGlassesLight dark:bgBadge absolute -right-[50%] top-[40%] flex w-fit items-center gap-6 rounded-full px-9 py-4 text-neutral-900 max-lg:-right-[26%] max-[800px]:gap-3 max-[800px]:px-5 max-[800px]:py-4">
+            <motion.div
+              variants={itemVariants}
+              className="bgGlassesLight dark:bgBadge absolute -right-[50%] top-[40%] flex w-fit items-center gap-6 rounded-full px-9 py-4 text-neutral-900 max-lg:-right-[26%] max-[800px]:gap-3 max-[800px]:px-5 max-[800px]:py-4"
+            >
               <img
                 src={jsIcon}
                 className="w-[35px] !cursor-default max-[640px]:w-[27px]"
@@ -150,9 +209,12 @@ const HeroSection = () => {
               <span className="font-poppins text-4xl tracking-wide max-lg:text-3xl max-[800px]:text-2xl max-[640px]:text-xl">
                 JavaScript
               </span>
-            </div>
+            </motion.div>
             {/* //!Badge-3 */}
-            <div className="bgGlassesLight dark:bgBadge absolute -right-[50%] bottom-[10%] flex w-fit items-center gap-6 rounded-full px-9 py-4 text-neutral-900 max-lg:-right-[25%] max-[800px]:-right-[20%] max-[800px]:gap-3 max-[800px]:px-5">
+            <motion.div
+              variants={itemVariants}
+              className="bgGlassesLight dark:bgBadge absolute -right-[50%] bottom-[10%] flex w-fit items-center gap-6 rounded-full px-9 py-4 text-neutral-900 max-lg:-right-[25%] max-[800px]:-right-[20%] max-[800px]:gap-3 max-[800px]:px-5"
+            >
               <img
                 src={framerIcon}
                 className="w-[35px] !cursor-default max-lg:w-[25px]"
@@ -161,9 +223,12 @@ const HeroSection = () => {
               <span className="font-poppins text-4xl tracking-wide max-lg:text-3xl max-[800px]:text-2xl max-[640px]:text-xl">
                 Framer Motion
               </span>
-            </div>
+            </motion.div>
             {/* //!Badge-4*/}
-            <div className="bgGlassesLight dark:bgBadge absolute -left-[33%] top-0 flex w-fit items-center gap-6 rounded-full px-9 py-4 text-neutral-900 max-lg:-left-[15%] max-[800px]:-left-[18%] max-[800px]:top-[5%] max-[800px]:gap-3 max-[800px]:px-5 max-[800px]:py-4">
+            <motion.div
+              variants={itemVariants}
+              className="bgGlassesLight dark:bgBadge absolute -left-[33%] top-0 flex w-fit items-center gap-6 rounded-full px-9 py-4 text-neutral-900 max-lg:-left-[15%] max-[800px]:-left-[18%] max-[800px]:top-[5%] max-[800px]:gap-3 max-[800px]:px-5 max-[800px]:py-4"
+            >
               <img
                 src={reactIcon}
                 className="w-[35px] !cursor-default max-[640px]:w-[27px]"
@@ -172,9 +237,12 @@ const HeroSection = () => {
               <span className="font-poppins text-4xl tracking-wide max-lg:text-3xl max-[800px]:text-2xl max-[640px]:text-xl">
                 ReactJS
               </span>
-            </div>
+            </motion.div>
             {/* //!Badge-5 */}
-            <div className="bgGlassesLight dark:bgBadge absolute -left-[50%] top-[40%] flex w-fit items-center gap-6 rounded-full px-9 py-4 text-neutral-900 max-lg:-left-[26%] max-[800px]:gap-3 max-[800px]:px-5 max-[800px]:py-4">
+            <motion.div
+              variants={itemVariants}
+              className="bgGlassesLight dark:bgBadge absolute -left-[50%] top-[40%] flex w-fit items-center gap-6 rounded-full px-9 py-4 text-neutral-900 max-lg:-left-[26%] max-[800px]:gap-3 max-[800px]:px-5 max-[800px]:py-4"
+            >
               <img
                 src={threeIcon}
                 className="w-[35px] !cursor-default max-[640px]:w-[27px]"
@@ -183,9 +251,12 @@ const HeroSection = () => {
               <span className="font-poppins text-4xl tracking-wide max-lg:text-3xl max-[800px]:text-2xl max-[640px]:text-xl">
                 ThreeJs
               </span>
-            </div>
+            </motion.div>
             {/* //!Badge-6 */}
-            <div className="bgGlassesLight dark:bgBadge absolute -left-[33%] bottom-[10%] flex w-fit items-center gap-6 rounded-full px-9 py-4 text-neutral-900 max-lg:-left-[25%] max-[800px]:-left-[10%] max-[800px]:gap-3 max-[800px]:px-5 max-[800px]:py-4">
+            <motion.div
+              variants={itemVariants}
+              className="bgGlassesLight dark:bgBadge absolute -left-[33%] bottom-[10%] flex w-fit items-center gap-6 rounded-full px-9 py-4 text-neutral-900 max-lg:-left-[25%] max-[800px]:-left-[10%] max-[800px]:gap-3 max-[800px]:px-5 max-[800px]:py-4"
+            >
               <img
                 src={nextIcon}
                 className="w-[35px] !cursor-default max-lg:w-[30px] max-[640px]:w-[27px]"
@@ -194,8 +265,8 @@ const HeroSection = () => {
               <span className="font-poppins text-4xl tracking-wide max-lg:text-3xl max-[800px]:text-2xl max-[640px]:text-xl">
                 NextJS
               </span>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
     </div>

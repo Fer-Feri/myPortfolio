@@ -9,12 +9,28 @@ import codeImg from "../assets/icons/code.png";
 import gameImg from "../assets/icons/game.png";
 import travelingImg from "../assets/icons/traveling.png";
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.3,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { duration: 0.5, ease: "easeInOut" },
+  },
+};
+
 const AboutMe = () => {
   const { scrollYProgress } = useScroll();
 
   const scaleText = useTransform(scrollYProgress, [0.1, 0.2], [1.1, 1]);
-  const scrollXBadge = useTransform(scrollYProgress, [0.05, 0.5], [0, -1000]);
-  const scrollXCard = useTransform(scrollYProgress, [0.05, 0.4], [-600, 1000]);
 
   return (
     <motion.div className="z-10 mt-14 w-full" id="about-me">
@@ -57,10 +73,17 @@ const AboutMe = () => {
             </div>
           </div>
           {/* badge */}
-          <div className="">
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+          >
             <div className="flex flex-wrap items-center gap-9">
-              {/* //!Badge-2 */}
-              <div className="bg-natural-900 flex w-fit items-center justify-center gap-4 rounded-full bg-neutral-700 px-6 py-4 text-white dark:bg-white dark:text-neutral-900">
+              {/* //!Badge-1 */}
+              <motion.div
+                variants={itemVariants}
+                className="bg-natural-900 flex w-fit items-center justify-center gap-4 rounded-full bg-neutral-700 px-6 py-4 text-white dark:bg-white dark:text-neutral-900"
+              >
                 <img
                   src={foodImg}
                   className="w-[35px] !cursor-default max-[640px]:w-[27px]"
@@ -69,9 +92,12 @@ const AboutMe = () => {
                 <span className="whitespace-nowrap font-poppinsB text-4xl tracking-wide max-lg:text-3xl max-[800px]:text-3xl">
                   Food
                 </span>
-              </div>
-              {/* //!Badge-1 */}
-              <div className="bg-natural-900 flex w-fit items-center justify-center gap-4 rounded-full bg-neutral-700 px-6 py-4 text-white dark:bg-white dark:text-neutral-900">
+              </motion.div>
+              {/* //!Badge-2 */}
+              <motion.div
+                variants={itemVariants}
+                className="bg-natural-900 flex w-fit items-center justify-center gap-4 rounded-full bg-neutral-700 px-6 py-4 text-white dark:bg-white dark:text-neutral-900"
+              >
                 <img
                   src={animeImg}
                   className="w-[35px] !cursor-default max-[640px]:w-[27px]"
@@ -80,10 +106,12 @@ const AboutMe = () => {
                 <span className="whitespace-nowrap font-poppinsB text-4xl tracking-wide max-lg:text-3xl max-[800px]:text-3xl">
                   Anime
                 </span>
-              </div>
-
+              </motion.div>
               {/* //!Badge-3 */}
-              <div className="bg-natural-900 flex w-fit items-center justify-center gap-4 rounded-full bg-neutral-700 px-6 py-4 text-white dark:bg-white dark:text-neutral-900">
+              <motion.div
+                variants={itemVariants}
+                className="bg-natural-900 flex w-fit items-center justify-center gap-4 rounded-full bg-neutral-700 px-6 py-4 text-white dark:bg-white dark:text-neutral-900"
+              >
                 <img
                   src={footballImg}
                   className="w-[35px] !cursor-default max-[640px]:w-[27px]"
@@ -92,9 +120,12 @@ const AboutMe = () => {
                 <span className="whitespace-nowrap font-poppinsB text-4xl tracking-wide max-lg:text-3xl max-[800px]:text-3xl">
                   Football
                 </span>
-              </div>
+              </motion.div>
               {/* //!Badge-4 */}
-              <div className="bg-natural-900 flex w-fit items-center justify-center gap-4 rounded-full bg-neutral-700 px-6 py-4 text-white dark:bg-white dark:text-neutral-900">
+              <motion.div
+                variants={itemVariants}
+                className="bg-natural-900 flex w-fit items-center justify-center gap-4 rounded-full bg-neutral-700 px-6 py-4 text-white dark:bg-white dark:text-neutral-900"
+              >
                 <img
                   src={musicImg}
                   className="w-[35px] !cursor-default max-[640px]:w-[27px]"
@@ -103,9 +134,12 @@ const AboutMe = () => {
                 <span className="whitespace-nowrap font-poppinsB text-4xl tracking-wide max-lg:text-3xl max-[800px]:text-3xl">
                   Music
                 </span>
-              </div>
+              </motion.div>
               {/* //!Badge-5 */}
-              <div className="bg-natural-900 flex w-fit items-center justify-center gap-4 rounded-full bg-neutral-700 px-6 py-4 text-white dark:bg-white dark:text-neutral-900">
+              <motion.div
+                variants={itemVariants}
+                className="bg-natural-900 flex w-fit items-center justify-center gap-4 rounded-full bg-neutral-700 px-6 py-4 text-white dark:bg-white dark:text-neutral-900"
+              >
                 <img
                   src={gameImg}
                   className="w-[35px] !cursor-default max-[640px]:w-[27px]"
@@ -114,9 +148,12 @@ const AboutMe = () => {
                 <span className="whitespace-nowrap font-poppinsB text-4xl tracking-wide max-lg:text-3xl max-[800px]:text-3xl">
                   Game
                 </span>
-              </div>
+              </motion.div>
               {/* //!Badge-6 */}
-              <div className="bg-natural-900 flex w-fit items-center justify-center gap-4 rounded-full bg-neutral-700 px-6 py-4 text-white dark:bg-white dark:text-neutral-900">
+              <motion.div
+                variants={itemVariants}
+                className="bg-natural-900 flex w-fit items-center justify-center gap-4 rounded-full bg-neutral-700 px-6 py-4 text-white dark:bg-white dark:text-neutral-900"
+              >
                 <img
                   src={codeImg}
                   className="w-[35px] !cursor-default max-[640px]:w-[27px]"
@@ -125,9 +162,12 @@ const AboutMe = () => {
                 <span className="whitespace-nowrap font-poppinsB text-4xl tracking-wide max-lg:text-3xl max-[800px]:text-3xl">
                   Coding
                 </span>
-              </div>
+              </motion.div>
               {/* //!Badge-7 */}
-              <div className="bg-natural-900 flex w-fit items-center justify-center gap-4 rounded-full bg-neutral-700 px-6 py-4 text-white dark:bg-white dark:text-neutral-900">
+              <motion.div
+                variants={itemVariants}
+                className="bg-natural-900 flex w-fit items-center justify-center gap-4 rounded-full bg-neutral-700 px-6 py-4 text-white dark:bg-white dark:text-neutral-900"
+              >
                 <img
                   src={travelingImg}
                   className="w-[35px] !cursor-default max-[640px]:w-[27px]"
@@ -136,42 +176,56 @@ const AboutMe = () => {
                 <span className="whitespace-nowrap font-poppinsB text-4xl tracking-wide max-lg:text-3xl max-[800px]:text-3xl">
                   Traveling
                 </span>
-              </div>
+              </motion.div>
             </div>
-          </div>
+          </motion.div>
         </div>
         {/*//! 2 */}
-        <div className="flex w-[45%] grow items-center">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          className="flex w-[45%] grow items-center"
+        >
           <div className="flex flex-wrap items-center justify-between gap-3 font-iranB text-6xl text-white max-md:text-4xl">
             {/*  */}
-            <div className="bgCard flex grow flex-col items-center justify-center gap-6 px-32 py-12 max-lg:px-16 max-lg:py-8 max-sm:px-9 max-sm:py-6">
+            <motion.div
+              variants={itemVariants}
+              className="bgCard flex grow flex-col items-center justify-center gap-6 px-32 py-12 max-lg:px-16 max-lg:py-8 max-sm:px-9 max-sm:py-6"
+            >
               <p className="textGradient whitespace-nowrap text-6xl max-lg:text-4xl max-sm:text-3xl">
                 Passionate
               </p>
               <p className="whitespace-nowrap text-5xl max-lg:text-3xl max-sm:text-2xl">
                 Web Developer
               </p>
-            </div>
+            </motion.div>
             {/*  */}
-            <div className="bgCard dark:bgCardDark flex grow flex-col items-center justify-center gap-6 px-32 py-12 max-lg:px-16 max-lg:py-8 max-sm:px-9 max-sm:py-6">
+            <motion.div
+              variants={itemVariants}
+              className="bgCard dark:bgCardDark flex grow flex-col items-center justify-center gap-6 px-32 py-12 max-lg:px-16 max-lg:py-8 max-sm:px-9 max-sm:py-6"
+            >
               <p className="textGradient whitespace-nowrap text-6xl max-lg:text-4xl max-sm:text-3xl">
                 Creating Modern &
               </p>
               <p className="whitespace-nowrap text-5xl max-lg:text-3xl max-sm:text-2xl">
                 Responsive Websites
               </p>
-            </div>
+            </motion.div>
             {/*  */}
-            <div className="bgCard flex grow flex-col items-center justify-center gap-6 px-32 py-12 max-lg:px-16 max-lg:py-8 max-sm:px-9 max-sm:py-6">
+            <motion.div
+              variants={itemVariants}
+              className="bgCard flex grow flex-col items-center justify-center gap-6 px-32 py-12 max-lg:px-16 max-lg:py-8 max-sm:px-9 max-sm:py-6"
+            >
               <p className="textGradient whitespace-nowrap text-6xl max-lg:text-4xl max-sm:text-3xl">
                 Turning Ideas
               </p>
               <p className="whitespace-nowrap text-5xl max-lg:text-3xl max-sm:text-2xl">
                 into Digital Reality
               </p>
-            </div>
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
       </div>
       {/* //!section-2 */}
       <div className="flex flex-col px-4">
