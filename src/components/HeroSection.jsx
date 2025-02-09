@@ -46,7 +46,7 @@ const itemVariants = {
 // ------------------------------
 const HeroSection = () => {
   return (
-    <div className="relative h-auto w-full overflow-x-hidden pt-14 max-2xl:px-3 max-md:px-6">
+    <div className="relative h-auto w-full overflow-hidden pt-14 max-2xl:px-3 max-md:px-6">
       <div className="relative w-full">
         {/*//? BG VECTOR */}
         <img

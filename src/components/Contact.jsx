@@ -28,7 +28,7 @@ const itemVariants = {
 const Contact = () => {
   return (
     <div
-      className="flex flex-col flex-wrap items-center justify-around gap-12 py-20"
+      className="flex flex-col flex-wrap items-center justify-around gap-12 px-4 py-20"
       id="contact"
     >
       {/* //?title */}
