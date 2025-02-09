@@ -8,6 +8,7 @@ import CustomizedTimeline from "./components/Timeline";
 import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
+import Contaact from "./components/Contaact";
 
 const App = () => {
   const { scrollYProgress } = useScroll();
@@ -53,7 +54,8 @@ const App = () => {
         <Projects />
 
         {/* بخش پنجم */}
-        <Contact />
+        {/* <Contact /> */}
+        <Contaact />
 
         {/* <motion.div
           style={{ width: widthPart1 }}
