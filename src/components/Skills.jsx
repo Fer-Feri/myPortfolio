@@ -1,91 +1,121 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useInView } from "react-intersection-observer";
 import ReactApexChart from "react-apexcharts";
 import { ThemeContext } from "../ThemeContext";
 
-const ApexChart = ({ percentage, label, fillLight, fillDark }) => {
+const BarChart = () => {
   const { isDarkMode } = useContext(ThemeContext);
-  const { ref, inView } = useInView({ triggerOnce: true });
-
-  const getFillColor = () => (isDarkMode ? fillDark : fillLight);
-  const getTextColor = () => (isDarkMode ? "#FFFFFF" : "#333333");
-
-  const [state, setState] = useState({
-    series: [0], // مقدار اولیه صفر است و بعداً مقداردهی می‌شود
+  const [chartData, setChartData] = useState({
+    series: [
+      {
+        name: "پیشرفت",
+        data: [90, 92, 60, 95, 88, 70],
+      },
+    ],
     options: {
       chart: {
-        height: 150,
-        type: "radialBar",
-        offsetY: -10,
+        type: "bar",
+        height: 450,
+        stacked: true,
+        toolbar: {
+          show: false,
+        },
+        fontFamily: "poppins",
       },
+      colors: isDarkMode ? ["#F2613F"] : ["#008FFB"],
       plotOptions: {
-        radialBar: {
-          startAngle: -135,
-          endAngle: 135,
-          dataLabels: {
-            name: {
-              fontSize: "16px",
-              color: getTextColor(),
-              offsetY: 120,
-            },
-            value: {
-              offsetY: 76,
-              fontSize: "22px",
-              color: getFillColor(),
-              formatter: (val) => `${val}%`,
-            },
+        bar: {
+          borderRadius: 5,
+          horizontal: true,
+          barHeight: "70%",
+        },
+      },
+      dataLabels: {
+        enabled: true,
+        formatter: (val) => `${val}%`,
+        style: {
+          colors: isDarkMode ? ["#FFFFFF"] : ["#333333"],
+        },
+      },
+      xaxis: {
+        categories: [
+          "JavaScript",
+          "React",
+          "NextJS",
+          "Tailwind",
+          "Framer Motion",
+          "ThreeJS",
+        ],
+        // title: {
+        //   text: "درصد تسلط",
+        //   floating: true,
+        //   style: {
+        //     color: isDarkMode ? "#FFFFFF" : "#333333",
+        //     fontSize: "2rem",
+        //     fontFamily: "iranB",
+        //   },
+        //   offsetY: 3,
+        // },
+        labels: {
+          style: {
+            colors: isDarkMode ? "#FFFFFF" : "#333333",
           },
         },
       },
-      fill: {
-        colors: [getFillColor()],
+      yaxis: {
+        labels: {
+          style: {
+            colors: isDarkMode ? "#FFFFFF" : "#333333",
+          },
+        },
       },
-      stroke: {
-        dashArray: 4,
+      tooltip: {
+        enabled: false,
       },
-      labels: [label],
+      grid: {
+        borderColor: isDarkMode ? "#444" : "#DDD",
+      },
     },
   });
 
   useEffect(() => {
-    if (inView) {
-      setState((prevState) => ({
-        ...prevState,
-        series: [percentage], // وقتی به ویو رسید، مقدار اصلی تنظیم شود
-        options: {
-          ...prevState.options,
-          plotOptions: {
-            ...prevState.options.plotOptions,
-            radialBar: {
-              ...prevState.options.plotOptions.radialBar,
-              dataLabels: {
-                name: {
-                  ...prevState.options.plotOptions.radialBar.dataLabels.name,
-                  color: getTextColor(),
-                },
-                value: {
-                  ...prevState.options.plotOptions.radialBar.dataLabels.value,
-                  color: getFillColor(),
-                },
-              },
+    setChartData((prevState) => ({
+      ...prevState,
+      options: {
+        ...prevState.options,
+        colors: isDarkMode ? ["#F2613F"] : ["#008FFB"],
+        xaxis: {
+          ...prevState.options.xaxis,
+          title: {
+            ...prevState.options.xaxis.title,
+            style: {
+              color: isDarkMode ? "#FFFFFF" : "#333333",
             },
           },
-          fill: {
-            colors: [getFillColor()],
+          labels: {
+            style: {
+              colors: isDarkMode ? "#FFFFFF" : "#333333",
+            },
           },
         },
-      }));
-    }
-  }, [inView, isDarkMode]);
+        yaxis: {
+          labels: {
+            style: {
+              colors: isDarkMode ? "#FFFFFF" : "#333333",
+            },
+          },
+        },
+      },
+    }));
+  }, [isDarkMode]);
 
   return (
-    <div ref={ref} id="chart">
+    <div id="chart">
       <ReactApexChart
-        options={state.options}
-        series={state.series}
-        type="radialBar"
-        height={350}
+        options={chartData.options}
+        series={chartData.series}
+        type="bar"
+        height={450}
       />
     </div>
   );
@@ -113,7 +143,7 @@ const Skills = () => {
       </div>
 
       {/* //!circular Progress */}
-      <div className="mt-10 grid grid-cols-2 items-center justify-center gap-y-9 max-[400px]:grid-cols-1 md:grid-cols-3">
+      {/* <div className="mt-10 grid grid-cols-2 items-center justify-center gap-y-9 max-[400px]:grid-cols-1 md:grid-cols-3">
         <ApexChart
           percentage={90}
           label="JavaScript"
@@ -150,7 +180,8 @@ const Skills = () => {
           fillLight="#780C28"
           fillDark="#3B6790"
         />
-      </div>
+      </div> */}
+      <BarChart />
     </div>
   );
 };
