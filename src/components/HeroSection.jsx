@@ -123,7 +123,7 @@ const HeroSection = () => {
         {/* //?button */}
         <div className="relative z-10 mt-24 flex items-center justify-center gap-6 text-4xl max-sm:text-3xl max-[390px]:text-2xl">
           <a
-            href="/myPortfolio/resume.pdf"
+            href="/portfolio/resume.pdf"
             download="resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
